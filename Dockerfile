@@ -1,4 +1,4 @@
-FROM maven:3.6.1-jdk-8-alpine
+FROM maven:3.8.2-jdk-8
 
 COPY . /data/app
 WORKDIR /data/app
