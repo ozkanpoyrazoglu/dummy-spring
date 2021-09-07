@@ -1,7 +1,9 @@
-FROM openjdk:18-jdk
+FROM maven:3.8.2-jdk-8
 
 COPY . /data/app
 WORKDIR /data/app
+
+RUN ["mvn", "clean", "install"]
 
 EXPOSE 8080
 
