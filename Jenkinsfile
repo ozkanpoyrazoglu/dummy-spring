@@ -29,18 +29,18 @@ pipeline {
             }
         }
         
-        stage('Warmup'){
-            steps{
-                sh 'sleep 700'
-            }
-        }
+//         stage('Warmup'){
+//             steps{
+//                 sh 'sleep 700'
+//             }
+//         }
         
-        stage('Check Latest Image'){
-            steps{
-                sh '''docker exec ozkantestapp_$BUILD_NUMBER curl -v localhost:8080
-exitstatus=$?'''
-            }
-        }
+//         stage('Check Latest Image'){
+//             steps{
+//                 sh '''docker exec ozkantestapp_$BUILD_NUMBER curl -v localhost:8080
+// exitstatus=$?'''
+//             }
+//         }
 
         stage('Deploy Image to ECR'){
             steps{
