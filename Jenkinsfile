@@ -41,6 +41,17 @@ pipeline {
 exitstatus=$?'''
             }
         }
+
+        stage('Deploy Image to ECR'){
+            steps{
+                sh '''aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 434134839217.dkr.ecr.eu-west-2.amazonaws.com
+docker tag ozkantestapp:$BUILD_NUMBER 434134839217.dkr.ecr.eu-west-2.amazonaws.com/ozkantestapp2:$BUILD_NUMBER
+docker push 434134839217.dkr.ecr.eu-west-2.amazonaws.com/ozkantestapp2:$BUILD_NUMBER
+docker tag ozkantestapp:$BUILD_NUMBER 434134839217.dkr.ecr.eu-west-2.amazonaws.com/ozkantestapp2:latest
+docker push 434134839217.dkr.ecr.eu-west-2.amazonaws.com/ozkantestapp2:latest
+'''
+            }
+        }
     
     }
 }
