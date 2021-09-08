@@ -52,6 +52,13 @@ docker push 434134839217.dkr.ecr.eu-west-2.amazonaws.com/ozkantestapp2:latest
 '''
             }
         }
+
+        stage('Cleanup Jenkins'){
+            steps{
+                sh '''eval $(docker rm $(docker ps -a -q) -f)
+sleep 20'''
+            }
+        }
     
     }
 }
