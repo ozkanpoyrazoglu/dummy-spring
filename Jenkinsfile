@@ -31,7 +31,7 @@ pipeline {
         
         stage('Warmup'){
             steps{
-                sh 'sleep 600'
+                sh 'sleep 700'
             }
         }
         
