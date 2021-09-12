@@ -64,12 +64,5 @@ docker push ozkanpoyrazoglu/ozkantestapp2:latest'''
         }
 
 
-        stage('Cleanup Jenkins'){
-            steps{
-                sh '''eval $(docker rm $(docker ps -a -q) -f)
-sleep 20'''
-            }
-        }
-    
     }
 }
